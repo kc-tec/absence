@@ -36,7 +36,7 @@
         }
         .form-container {
             background-color: #ffffff;
-            padding: 10px;
+            padding: 20px;
             border-radius: 16px; /* Rounded corners for the container */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
             text-align: left; /* Align text to left for form labels */
@@ -44,6 +44,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px; /* Space between sections */
+            overflow-x: auto; /* Allow horizontal scrolling if content overflows */
         }
         .hidden {
             display: none !important;
@@ -240,12 +241,12 @@
                 </div>
 
                 <!-- Student ID and Student Name in one row -->
-                <div class="flex flex-col md:flex-row md:space-x-4">
-                    <div class="form-group w-1/4">
+                <div class="flex flex-row flex-nowrap -mx-2">
+                    <div class="form-group w-1/4 px-2 flex-shrink-0">
                         <label for="studentId">អត្តលេខ:</label>
                         <input type="number" id="studentId" name="studentId" placeholder="បញ្ចូលអត្តលេខ" required>
                     </div>
-                    <div class="form-group w-3/4">
+                    <div class="form-group w-3/4 px-2 flex-shrink-0">
                         <label for="studentName">ឈ្មោះសិស្ស:</label>
                         <input type="text" id="studentName" name="studentName" placeholder="បញ្ចូលឈ្មោះសិស្ស" required>
                     </div>
@@ -261,8 +262,8 @@
                 </div>
 
                 <!-- Class, Year, Generation in one row -->
-                <div class="flex flex-col md:flex-row md:space-x-4">
-                    <div class="form-group flex-1 w-full">
+                <div class="flex flex-row flex-nowrap -mx-2">
+                    <div class="form-group flex-1 px-2 flex-shrink-0">
                         <label for="studentClass">ថ្នាក់:</label>
                         <select id="studentClass" name="studentClass" required>
                             <option value="ក" selected>ក</option>
@@ -278,7 +279,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group flex-1 w-full">
+                    <div class="form-group flex-1 px-2 flex-shrink-0">
                         <label for="studentYear">ឆ្នាំ:</label>
                         <select id="studentYear" name="studentYear" required>
                             <option value="១">១</option>
@@ -288,7 +289,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group flex-1 w-full">
+                    <div class="form-group flex-1 px-2 flex-shrink-0">
                         <label for="generation">ជំនាន់:</label>
                         <select id="generation" name="generation">
                             <option value="៤០" selected>៤០</option>
@@ -316,15 +317,16 @@
                 </div>
 
                 <!-- From Date -->
-                <div class="form-group">
-                    <label for="fromDate">ពីថ្ងៃ:</label>
-                    <input type="date" id="fromDate" name="fromDate" required>
-                </div>
+                <div class="flex flex-row flex-nowrap -mx-2">
+                    <div class="form-group flex-1 px-2 flex-shrink-0">
+                        <label for="fromDate">ពីថ្ងៃ:</label>
+                        <input type="date" id="fromDate" name="fromDate" required>
+                    </div>
 
-                <!-- To Date -->
-                <div class="form-group">
-                    <label for="toDate">ដល់ថ្ងៃ:</label>
-                    <input type="date" id="toDate" name="toDate" required>
+                    <div class="form-group flex-1 px-2 flex-shrink-0">
+                        <label for="toDate">ដល់ថ្ងៃ:</label>
+                        <input type="date" id="toDate" name="toDate" required>
+                    </div>
                 </div>
 
                 <!-- Current Day -->
