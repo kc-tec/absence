@@ -120,8 +120,8 @@
             padding: 32px;
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow for slip */
-            width: 650px; /* Fixed width for the slip container */
-            height: 700px; /* Fixed height for the slip container */
+            width: 600px; /* Fixed width for the slip container */
+            height: 650px; /* Fixed height for the slip container */
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -144,7 +144,7 @@
         }
         .slip-header h2 {
             font-family: 'Moul', cursive; /* Apply Moul font to the header title */
-            font-size: 1.8rem; /* Decreased font size */
+            font-size: 1.4rem; /* Decreased font size */
             font-weight: normal; /* Removed bold */
             color: #1f2937;
             margin-bottom: 8px;
@@ -154,7 +154,7 @@
             color: #4b5563;
         }
         .slip-detail-section {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
         .slip-detail-section p {
             text-align: left; /* Default to left align for paragraphs in this section */
@@ -187,7 +187,7 @@
         }
         .signature-block {
             text-align: right; /* Align the entire signature block to right */
-            margin-top: 32px;
+            margin-top: 16px;
         }
         .signature-block p {
             margin-bottom: 8px; /* Space between lines in signature */
@@ -197,10 +197,13 @@
             margin-top: 16px; /* Space above officer name */
         }
         .signature-image {
-            max-width: 150px; /* Limit signature image width */
-            height: auto; /* Maintain aspect ratio */
+            max-width: 100px; /* Decreased max-width */
+            height: 30px; /* Decreased height */
+            object-fit: contain; /* Ensure image scales properly without distortion */
             display: block;
-            margin: 10px auto; /* Center the image within the block */
+            margin-left: auto; /* Push to the right */
+            margin-right: 0; /* No right margin */
+            margin-top: 10px; /* Space above the image */
         }
         .slip-actions {
             margin-top: 20px;
@@ -374,7 +377,7 @@
             'មន្ត្រីផ្នែកសិក្សា': 'កាក់ រតនា'
         };
 
-        // Mapping for Approver to Signature Image filename
+        // Mapping for Approver to Signature Image filename (using .PNG)
         const approverSignatureMap = {
             'នាយករង': '001.PNG',
             'ប្រធានផ្នែកសិក្សា': '002.PNG',
@@ -457,17 +460,17 @@
                     <h2>បណ្ណអនុញ្ញាតច្បាប់</h2>
                 </div>
                 <div class="slip-detail-section">
-                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;យោងតាមពាក្យសុំច្បាប់លេខ ${khmerAbsentId} និងមូលហេតុសមស្របរបស់សាមីជន</p>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;យោងតាមពាក្យសុំច្បាប់លេខ ${khmerAbsentId} និងមូលហេតុសមស្របរបស់សាមីជន</p>
                 </div>
                 <div class="slip-subtitle-section">
                     <p>ផ្នែកសិក្សាបានឃើញ និងអនុញ្ញាត</p>
                 </div>
                 <div class="slip-detail-section">
-                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ឱ្យគរុសិស្សឈ្មោះ <strong>${studentName}</strong> ភេទ <strong>${sex}</strong> ថ្នាក់ <strong>${combinedClassYear}</strong> ជំនាន់ទី <strong>${generation}</strong> ឆ្នាំសិក្សា ២០២៤-២០២៥ បានឈប់សម្រាកចាប់ពី <strong>${khmerFromDate}</strong> ដល់ <strong>${khmerToDate}</strong> ។</p>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ឱ្យគរុសិស្សឈ្មោះ <strong>${studentName}</strong> ភេទ <strong>${sex}</strong> ថ្នាក់ <strong>${combinedClassYear}</strong> ជំនាន់ទី <strong>${generation}</strong> ឆ្នាំសិក្សា ២០២៤-២០២៥ បានឈប់សម្រាកចំនួន <strong>${khmerAbsentDays} ថ្ងៃ</strong> គិតចាប់ពី <strong>${khmerFromDate}</strong> ដល់ <strong>${khmerToDate}</strong> ។</p>
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}</p>
+                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/150x50/cccccc/333333?text=Signature+Missing';">` : ''}
                     <p><strong>${officerName}</strong></p>
                 </div>
