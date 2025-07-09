@@ -44,7 +44,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px; /* Space between sections */
-            /* Removed overflow-x: auto; here to prevent horizontal scrolling of the form itself */
+            overflow-x: auto; /* Allow horizontal scrolling if content overflows */
         }
         .hidden {
             display: none !important;
@@ -149,6 +149,10 @@
             border-radius: 8px; /* Match container border-radius */
             flex-grow: 1; /* Allow content to grow and take available space */
             overflow: auto; /* Add scroll if content overflows */
+            background-image: url('bk.PNG'); /* Background image */
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the background image */
         }
         .slip-header {
             text-align: center;
