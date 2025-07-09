@@ -8,15 +8,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- html2canvas CDN for converting HTML to image -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- Google Fonts - Battambang and Moul -->
-    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Koh Santepheap and Moul -->
+    <link href="https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Moul&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Custom styles for Battambang font and rounded corners */
+        /* Custom styles for Koh Santepheap font and rounded corners */
         body {
-            font-family: 'Battambang', sans-serif; /* Applied Battambang font to the entire body */
+            font-family: 'Koh Santepheap', sans-serif; /* Applied Koh Santepheap font to the entire body */
             background-color: #f0f2f5; /* Light gray background */
             display: flex;
             justify-content: center;
@@ -134,8 +134,8 @@
             padding: 32px;
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow for slip */
-            width: 640px; /* Fixed width for the slip container */
-            height: 690px; /* Fixed height for the slip container */
+            width: 600px; /* Fixed width for the slip container */
+            height: 750px; /* Changed height to 750px */
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -143,7 +143,7 @@
         .slip-preview-content {
             line-height: 1.6;
             color: #1f2937;
-            font-family: 'Battambang', sans-serif; /* Apply Battambang font */
+            font-family: 'Koh Santepheap', sans-serif; /* Apply Koh Santepheap font */
             padding: 24px; /* Added padding for paper-like margin */
             border: 1px solid #e0e0e0; /* Subtle border to define the "paper" */
             border-radius: 8px; /* Match container border-radius */
@@ -152,13 +152,13 @@
         }
         .slip-header {
             text-align: center;
-            margin-bottom: 4px;
+            margin-bottom: 14px;
             border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 8px;
+            padding-bottom: 14px;
         }
         .slip-header h2 {
             font-family: 'Moul', cursive; /* Apply Moul font to the header title */
-            font-size: 1.4rem; /* Increased font size */
+            font-size: 1.6rem; /* Increased font size */
             font-weight: normal; /* Removed bold */
             color: #1f2937;
             margin-bottom: 8px;
@@ -168,7 +168,7 @@
             color: #4b5563;
         }
         .slip-detail-section {
-            margin-bottom: 8px; /* Updated margin-bottom */
+            margin-bottom: 14px; /* Updated margin-bottom */
         }
         .slip-detail-section p {
             text-align: left; /* Default to left align for paragraphs in this section */
@@ -176,7 +176,7 @@
         }
         .slip-subtitle-section { /* New class for the subtitle section */
             text-align: center; /* Center align for this specific section */
-            margin-bottom: 8px; /* Add some space below */
+            margin-bottom: 14px; /* Add some space below */
         }
         .slip-subtitle-section p { /* Apply font size to paragraphs within this section */
             font-size: 1.2rem; /* Increased font size */
@@ -205,7 +205,7 @@
         }
         .signature-block {
             text-align: right; /* Align the entire signature block to right */
-            margin-top: 5px; /* Updated margin-top */
+            margin-top: 2px; /* Updated margin-top */
         }
         .signature-block p {
             margin-bottom: 2px; /* Updated margin-bottom */
@@ -213,7 +213,7 @@
         }
         .signature-block strong {
             display: block; /* Ensure officer name is on its own line */
-            margin-top: 5px; /* Updated margin-top */
+            margin-top: 2px; /* Updated margin-top */
             font-size: 1.2rem; /* Increased font size */
         }
         .signature-image {
@@ -489,19 +489,19 @@
                     <h2>បណ្ណអនុញ្ញាតច្បាប់</h2>
                 </div>
                 <div class="slip-detail-section">
-                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;យោងតាមពាក្យសុំច្បាប់លេខ ${khmerAbsentId} និង​មូលហេតុ​សមស្រប​របស់សាមីជន</p>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;យោងតាមពាក្យសុំច្បាប់លេខ ${khmerAbsentId} និងមូលហេតុសមស្របរបស់សាមីជន</p>
                 </div>
                 <div class="slip-subtitle-section">
                     <p>ផ្នែកសិក្សាបានឃើញ និងអនុញ្ញាត</p>
                 </div>
                 <div class="slip-detail-section">
-                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ឱ្យគរុសិស្សឈ្មោះ <strong>${studentName}</strong> ភេទ <strong>${sex}</strong> ថ្នាក់ <strong>${combinedClassYear}</strong> ជំនាន់ទី <strong>${generation}</strong> ឆ្នាំសិក្សា ២០២៤-២០២៥ ឈប់សម្រាកចំនួន <strong>${khmerAbsentDays} ថ្ងៃ</strong> គិតចាប់ពី <strong>${khmerFromDate}</strong> ដល់ <strong>${khmerToDate}</strong> ។</p>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ឱ្យគរុសិស្សឈ្មោះ <strong>${studentName}</strong> ភេទ <strong>${sex}</strong> ថ្នាក់ <strong>${combinedClassYear}</strong> ជំនាន់ទី <strong>${generation}</strong> ឆ្នាំសិក្សា ២០២៤-២០២៥ បានឈប់សម្រាកចំនួន <strong>${khmerAbsentDays} ថ្ងៃ</strong> គិតចាប់ពី <strong>${khmerFromDate}</strong> ដល់ <strong>${khmerToDate}</strong> ។</p>
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
                     <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/250x100/cccccc/333333?text=Signature+Missing';">` : ''}
-                    <p><strong>${officerName}&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+                    <p><strong>${officerName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
                 </div>
             `;
 
