@@ -87,7 +87,7 @@
         button {
             background-color: #4f46e5; /* Indigo */
             color: white;
-            padding: 22px 28px; /* Increased vertical padding for more height */
+            padding: 24px 32px; /* Increased padding for more height and width */
             border: none;
             border-radius: 8px; /* Rounded corners for button */
             cursor: pointer;
@@ -204,9 +204,9 @@
         .signature-image {
             max-width: 150px; /* Limit signature image width */
             height: auto; /* Maintain aspect ratio */
-            display: block; /* Center the image */
-            margin-left: auto; /* Center the image */
-            margin-right: auto; /* Center the image */
+            display: block;
+            margin-left: auto; /* Remove this to align right */
+            margin-right: 0; /* Align to the right */
             margin-top: 10px; /* Space above the image */
         }
         .slip-actions {
@@ -226,29 +226,29 @@
             <form id="absentForm">
                 <!-- Absent ID -->
                 <div class="form-group">
-                    <label for="absentId">លេខសម្គាល់អវត្តមាន (Absent ID):</label>
+                    <label for="absentId">លេខសម្គាល់អវត្តមាន:</label>
                     <input type="text" id="absentId" name="absentId" readonly class="bg-gray-100 cursor-not-allowed">
                 </div>
 
                 <!-- Student Name -->
                 <div class="form-group">
-                    <label for="studentName">ឈ្មោះសិស្ស (Student Name):</label>
+                    <label for="studentName">ឈ្មោះសិស្ស:</label>
                     <input type="text" id="studentName" name="studentName" placeholder="បញ្ចូលឈ្មោះសិស្ស" required>
                 </div>
 
                 <!-- Sex -->
                 <div class="form-group">
-                    <label>ភេទ (Sex):</label>
+                    <label>ភេទ:</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="sex" value="male" required checked> ប្រុស (Male)</label>
-                        <label><input type="radio" name="sex" value="female"> ស្រី (Female)</label>
+                        <label><input type="radio" name="sex" value="male" required checked> ប្រុស</label>
+                        <label><input type="radio" name="sex" value="female"> ស្រី</label>
                     </div>
                 </div>
 
                 <!-- Class and Year in one row -->
                 <div class="flex flex-col md:flex-row md:space-x-4">
                     <div class="form-group flex-1 w-full">
-                        <label for="studentClass">ថ្នាក់ (Class):</label>
+                        <label for="studentClass">ថ្នាក់:</label>
                         <select id="studentClass" name="studentClass" required>
                             <option value="ក" selected>ក</option>
                             <option value="ខ">ខ</option>
@@ -264,7 +264,7 @@
                     </div>
 
                     <div class="form-group flex-1 w-full">
-                        <label for="studentYear">ឆ្នាំ (Year):</label>
+                        <label for="studentYear">ឆ្នាំ:</label>
                         <select id="studentYear" name="studentYear" required>
                             <option value="១">១</option>
                             <option value="២" selected>២</option>
@@ -276,7 +276,7 @@
 
                 <!-- Generation -->
                 <div class="form-group">
-                    <label for="generation">ជំនាន់ (Generation):</label>
+                    <label for="generation">ជំនាន់:</label>
                     <select id="generation" name="generation">
                         <option value="៤០" selected>៤០</option>
                         <option value="៤១">៤១</option>
@@ -289,7 +289,7 @@
 
                 <!-- Absent Days -->
                 <div class="form-group">
-                    <label for="absentDays">ចំនួនថ្ងៃអវត្តមាន (Absent Days):</label>
+                    <label for="absentDays">ចំនួនថ្ងៃអវត្តមាន:</label>
                     <select id="absentDays" name="absentDays" required>
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
@@ -303,25 +303,25 @@
 
                 <!-- From Date -->
                 <div class="form-group">
-                    <label for="fromDate">ពីថ្ងៃ (From Date):</label>
+                    <label for="fromDate">ពីថ្ងៃ:</label>
                     <input type="date" id="fromDate" name="fromDate" required>
                 </div>
 
                 <!-- To Date -->
                 <div class="form-group">
-                    <label for="toDate">ដល់ថ្ងៃ (To Date):</label>
+                    <label for="toDate">ដល់ថ្ងៃ:</label>
                     <input type="date" id="toDate" name="toDate" required>
                 </div>
 
                 <!-- Current Day -->
                 <div class="form-group">
-                    <label for="currentDay">ថ្ងៃបច្ចុប្បន្ន (Current Day):</label>
+                    <label for="currentDay">ថ្ងៃបច្ចុប្បន្ន:</label>
                     <input type="text" id="currentDay" name="currentDay" readonly class="bg-gray-100 cursor-not-allowed">
                 </div>
 
                 <!-- Approver -->
                 <div class="form-group">
-                    <label for="approver">អ្នកអនុម័ត (Approver):</label>
+                    <label for="approver">អ្នកអនុម័ត:</label>
                     <select id="approver" name="approver" required>
                         <option value="">ជ្រើសរើសអ្នកអនុម័ត</option> <!-- Select Approver -->
                         <option value="នាយករង">នាយករង</option>
@@ -332,19 +332,19 @@
                 </div>
 
                 <!-- Officer Name -->
-                <div class="form-group">
-                    <label for="officerName">ឈ្មោះមន្ត្រី (Officer Name):</label>
+                <div class="form-group hidden"> <!-- Hidden Officer Name field -->
+                    <label for="officerName">ឈ្មោះមន្ត្រី:</label>
                     <input type="text" id="officerName" name="officerName" readonly class="bg-gray-100 cursor-not-allowed">
                 </div>
 
                 <!-- Signature Image Field -->
-                <div class="form-group">
-                    <label for="signatureImage">ហត្ថលេខា (Signature):</label>
+                <div class="form-group hidden"> <!-- Hidden Signature Image field -->
+                    <label for="signatureImage">ហត្ថលេខា:</label>
                     <input type="file" id="signatureImage" name="signatureImage" accept="image/*">
                 </div>
 
                 <button type="button" onclick="generateAbsenceSlip()">
-                    <i class="fas fa-eye"></i> មើលជាមុន (Preview)
+                    <i class="fas fa-eye"></i> មើលជាមុន
                 </button>
             </form>
         </div>
@@ -385,6 +385,14 @@
             'ប្រធានផ្នែកសិក្សា': 'សេង សត្យា',
             'អនុប្រធានផ្នែកសិក្សា': 'ហ៊ង សុខលាភ',
             'មន្ត្រីផ្នែកសិក្សា': 'កាក់ រតនា'
+        };
+
+        // Mapping for Approver to Signature Image filename
+        const approverSignatureMap = {
+            'នាយករង': '001.png',
+            'ប្រធានផ្នែកសិក្សា': '002.png',
+            'អនុប្រធានផ្នែកសិក្សា': '003.png',
+            'មន្ត្រីផ្នែកសិក្សា': '004.png'
         };
 
         /**
@@ -440,17 +448,9 @@
             const currentDay = document.getElementById('currentDay').value; // Already in Khmer
             const approver = document.getElementById('approver').value;
             const officerName = document.getElementById('officerName').value;
-            const signatureFile = document.getElementById('signatureImage').files[0];
 
-            let signatureDataUrl = '';
-            if (signatureFile) {
-                // Read the signature file as a Data URL
-                signatureDataUrl = await new Promise((resolve) => {
-                    const reader = new FileReader();
-                    reader.onload = (e) => resolve(e.target.result);
-                    reader.readAsDataURL(signatureFile);
-                });
-            }
+            // Get signature image path based on approver
+            const signatureImagePath = approverSignatureMap[approver] || ''; // Default to empty if no match
 
             // Convert Western dates to Khmer for the slip
             const fromDateObj = new Date(fromDate);
@@ -471,17 +471,17 @@
                 </div>
                 <div class="slip-detail-section">
                     <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;យោងតាមពាក្យសុំច្បាប់លេខ ${khmerAbsentId} និងមូលហេតុសមស្របរបស់សាមីជន</p>
-                    </div>
-                    <div class="slip-subtitle-section">
-                        <p>ផ្នែកសិក្សាបានឃើញ និងអនុញ្ញាត</p>
-                    </div>
-                    <div class="slip-detail-section">
+                </div>
+                <div class="slip-subtitle-section">
+                    <p>ផ្នែកសិក្សាបានឃើញ និងអនុញ្ញាត</p>
+                </div>
+                <div class="slip-detail-section">
                     <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ឱ្យគរុសិស្សឈ្មោះ <strong>${studentName}</strong> ភេទ <strong>${sex}</strong> ថ្នាក់ <strong>${combinedClassYear}</strong> ជំនាន់ទី <strong>${generation}</strong> ឆ្នាំសិក្សា ២០២៤-២០២៥ បានឈប់សម្រាកចាប់ពី <strong>${khmerFromDate}</strong> ដល់ <strong>${khmerToDate}</strong> ។</p>
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}</p>
-                    ${signatureDataUrl ? `<img src="${signatureDataUrl}" alt="Signature" class="signature-image">` : ''}
+                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/150x50/cccccc/333333?text=Signature+Missing';">` : ''}
                     <p><strong>${officerName}</strong></p>
                 </div>
             `;
