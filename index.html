@@ -134,8 +134,8 @@
             padding: 32px;
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow for slip */
-            width: 600px; /* Fixed width for the slip container */
-            height: 650px; /* Fixed height for the slip container */
+            width: 630px; /* Fixed width for the slip container */
+            height: 690px; /* Fixed height for the slip container */
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -152,37 +152,41 @@
         }
         .slip-header {
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 4px;
             border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 14px;
+            padding-bottom: 8px;
         }
         .slip-header h2 {
             font-family: 'Moul', cursive; /* Apply Moul font to the header title */
-            font-size: 1.4rem; /* Decreased font size */
+            font-size: 1.4rem; /* Increased font size */
             font-weight: normal; /* Removed bold */
             color: #1f2937;
             margin-bottom: 8px;
         }
         .slip-header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem; /* Increased font size */
             color: #4b5563;
         }
         .slip-detail-section {
-            margin-bottom: 14px; /* Updated margin-bottom */
+            margin-bottom: 8px; /* Updated margin-bottom */
         }
         .slip-detail-section p {
             text-align: left; /* Default to left align for paragraphs in this section */
+            font-size: 1.2rem; /* Increased font size */
         }
         .slip-subtitle-section { /* New class for the subtitle section */
             text-align: center; /* Center align for this specific section */
-            margin-bottom: 14px; /* Add some space below */
+            margin-bottom: 8px; /* Add some space below */
+        }
+        .slip-subtitle-section p { /* Apply font size to paragraphs within this section */
+            font-size: 1.2rem; /* Increased font size */
         }
         .slip-detail-item {
             display: flex;
             justify-content: space-between;
             padding: 10px 0; /* Increased padding */
             border-bottom: 1px solid #e5e7eb; /* Solid line for clarity */
-            font-size: 1.1rem; /* Slightly larger font for details */
+            font-size: 1.15rem; /* Increased font size */
         }
         .slip-detail-item:last-child {
             border-bottom: none;
@@ -205,14 +209,16 @@
         }
         .signature-block p {
             margin-bottom: 2px; /* Updated margin-bottom */
+            font-size: 1.2rem; /* Increased font size */
         }
         .signature-block strong {
             display: block; /* Ensure officer name is on its own line */
             margin-top: 2px; /* Updated margin-top */
+            font-size: 1.2rem; /* Increased font size */
         }
         .signature-image {
             max-width: 200px; /* Decreased max-width */
-            height: 70px; /* Increased height to 80px */
+            height: 80px; /* Increased height to 80px */
             object-fit: contain; /* Ensure image scales properly without distortion */
             display: block;
             margin-left: auto; /* Push to the right */
@@ -489,13 +495,13 @@
                     <p>ផ្នែកសិក្សាបានឃើញ និងអនុញ្ញាត</p>
                 </div>
                 <div class="slip-detail-section">
-                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ឱ្យគរុសិស្សឈ្មោះ <strong>${studentName}</strong> ភេទ <strong>${sex}</strong> ថ្នាក់ <strong>${combinedClassYear}</strong> ជំនាន់ទី <strong>${generation}</strong> ឆ្នាំសិក្សា ២០២៤-២០២៥ បានឈប់សម្រាកចំនួន <strong>${khmerAbsentDays} ថ្ងៃ</strong> គិតចាប់ពី <strong>${khmerFromDate}</strong> ដល់ <strong>${khmerToDate}</strong> ។</p>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ឱ្យគរុសិស្សឈ្មោះ <strong>${studentName}</strong> ភេទ <strong>${sex}</strong> ថ្នាក់ <strong>${combinedClassYear}</strong> ជំនាន់ទី <strong>${generation}</strong> ឆ្នាំសិក្សា ២០២៤-២០២៥ ឈប់សម្រាកចំនួន <strong>${khmerAbsentDays} ថ្ងៃ</strong> គិតចាប់ពី <strong>${khmerFromDate}</strong> ដល់ <strong>${khmerToDate}</strong> ។</p>
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/250x100/cccccc/333333?text=Signature+Missing';">` : ''}
-                    <p><strong>${officerName}</strong></p>
+                    <p><strong>${officerName}&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
                 </div>
             `;
 
