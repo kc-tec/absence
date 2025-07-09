@@ -60,8 +60,7 @@
         .form-group input[type="text"],
         .form-group input[type="number"],
         .form-group input[type="date"],
-        .form-group select,
-        .form-group input[type="file"] { /* Added file input for styling */
+        .form-group select { /* Added select for styling */
             border: 1px solid #d1d5db; /* Light gray border */
             padding: 10px 14px;
             border-radius: 8px; /* Rounded corners for input */
@@ -70,10 +69,6 @@
             color: #374151; /* Darker text */
             box-sizing: border-box; /* Include padding in width */
             background-color: white; /* Ensure select background is white */
-        }
-        .form-group input[type="file"] {
-            padding-top: 8px; /* Adjust padding for file input */
-            padding-bottom: 8px;
         }
         .form-group input[type="radio"] {
             margin-right: 8px;
@@ -205,8 +200,8 @@
             max-width: 150px; /* Limit signature image width */
             height: auto; /* Maintain aspect ratio */
             display: block;
-            margin-left: auto; /* Remove this to align right */
-            margin-right: 0; /* Align to the right */
+            margin-left: auto; /* This aligns the image to the right within the block */
+            margin-right: 0;
             margin-top: 10px; /* Space above the image */
         }
         .slip-actions {
@@ -480,7 +475,7 @@
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>${approver}</p>
                     ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/150x50/cccccc/333333?text=Signature+Missing';">` : ''}
                     <p><strong>${officerName}</strong></p>
                 </div>
