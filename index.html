@@ -44,7 +44,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px; /* Space between sections */
-            overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+            /* Removed overflow-x: auto; here to prevent horizontal scrolling of the form itself */
         }
         .hidden {
             display: none !important;
@@ -499,9 +499,9 @@
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/250x100/cccccc/333333?text=Signature+Missing';">` : ''}
-                    <p><strong>${officerName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+                    <p><strong>${officerName}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                 </div>
             `;
 
@@ -554,7 +554,7 @@
 
                     await navigator.share({
                         files: [file],
-                        title: 'Absence Slip',
+                        title: '',
                         text: '',
                     });
                     console.log('Absence Slip shared successfully.');
