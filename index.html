@@ -69,6 +69,19 @@
             color: #374151; /* Darker text */
             box-sizing: border-box; /* Include padding in width */
             background-color: white; /* Ensure select background is white */
+            -webkit-appearance: none; /* Remove default iOS styling */
+            appearance: none; /* Remove default styling */
+        }
+        /* Specific styling for date input to ensure consistent appearance */
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 1;
+            display: block;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>') no-repeat center center;
+            background-size: contain;
+            width: 1.2em; /* Adjust size as needed */
+            height: 1.2em; /* Adjust size as needed */
+            cursor: pointer;
+            margin-left: auto; /* Push to the right */
         }
         .form-group input[type="radio"] {
             margin-right: 8px;
@@ -82,7 +95,7 @@
         button {
             background-color: #4f46e5; /* Indigo */
             color: white;
-            padding: 24px 32px; /* Increased padding for more height and width */
+            padding: 20px 20px; /* Increased padding for more height and width */
             border: none;
             border-radius: 8px; /* Rounded corners for button */
             cursor: pointer;
@@ -197,8 +210,8 @@
             margin-top: 16px; /* Space above officer name */
         }
         .signature-image {
-            max-width: 100px; /* Decreased max-width */
-            height: 30px; /* Decreased height */
+            max-width: 200; /* Decreased max-width */
+            height: 65px; /* Decreased height */
             object-fit: contain; /* Ensure image scales properly without distortion */
             display: block;
             margin-left: auto; /* Push to the right */
@@ -241,7 +254,7 @@
                     </div>
                 </div>
 
-                <!-- Class and Year in one row -->
+                <!-- Class, Year, Generation in one row -->
                 <div class="flex flex-col md:flex-row md:space-x-4">
                     <div class="form-group flex-1 w-full">
                         <label for="studentClass">ថ្នាក់:</label>
@@ -262,25 +275,24 @@
                     <div class="form-group flex-1 w-full">
                         <label for="studentYear">ឆ្នាំ:</label>
                         <select id="studentYear" name="studentYear" required>
-                            <option value="១">១</option>
+                            <option value="១">១</</option>
                             <option value="២" selected>២</option>
                             <option value="៣">៣</option>
                             <option value="៤">៤</option>
                         </select>
                     </div>
-                </div>
 
-                <!-- Generation -->
-                <div class="form-group">
-                    <label for="generation">ជំនាន់:</label>
-                    <select id="generation" name="generation">
-                        <option value="៤០" selected>៤០</option>
-                        <option value="៤១">៤១</option>
-                        <option value="៤២">៤២</option>
-                        <option value="៤៣">៤៣</option>
-                        <option value="៤៤">៤៤</option>
-                        <option value="៤៥">៤៥</option>
-                    </select>
+                    <div class="form-group flex-1 w-full">
+                        <label for="generation">ជំនាន់:</label>
+                        <select id="generation" name="generation">
+                            <option value="៤០" selected>៤០</option>
+                            <option value="៤១">៤១</option>
+                            <option value="៤២">៤២</option>
+                            <option value="៤៣">៤៣</option>
+                            <option value="៤៤">៤៤</option>
+                            <option value="៤៥">៤៥</option>
+                        </select>
+                    </div>
                 </div>
 
                 <!-- Absent Days -->
@@ -310,7 +322,7 @@
                 </div>
 
                 <!-- Current Day -->
-                <div class="form-group">
+                <div class="form-group hidden"> <!-- Hidden Current Day field -->
                     <label for="currentDay">ថ្ងៃបច្ចុប្បន្ន:</label>
                     <input type="text" id="currentDay" name="currentDay" readonly class="bg-gray-100 cursor-not-allowed">
                 </div>
@@ -470,8 +482,8 @@
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/150x50/cccccc/333333?text=Signature+Missing';">` : ''}
+                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/250x100/cccccc/333333?text=Signature+Missing';">` : ''}
                     <p><strong>${officerName}</strong></p>
                 </div>
             `;
