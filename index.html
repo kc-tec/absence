@@ -212,12 +212,12 @@
         }
         .signature-image {
             max-width: 200px; /* Decreased max-width */
-            height: 90px; /* Increased height to 80px */
+            height: 70px; /* Increased height to 80px */
             object-fit: contain; /* Ensure image scales properly without distortion */
             display: block;
             margin-left: auto; /* Push to the right */
             margin-right: 0; /* No right margin */
-            margin-top: 0px; /* Updated margin-top */
+            margin-top: 5px; /* Updated margin-top */
         }
         .slip-actions {
             margin-top: 20px;
@@ -483,7 +483,7 @@
                     <h2>បណ្ណអនុញ្ញាតច្បាប់</h2>
                 </div>
                 <div class="slip-detail-section">
-                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;យោងតាមពាក្យសុំច្បាប់លេខ ${khmerAbsentId} និងមូលហេតុ​ឈប់សម្រាកសមស្របរបស់សាមីជន</p>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;យោងតាមពាក្យសុំច្បាប់លេខ ${khmerAbsentId} និងមូលហេតុសមស្របរបស់សាមីជន</p>
                 </div>
                 <div class="slip-subtitle-section">
                     <p>ផ្នែកសិក្សាបានឃើញ និងអនុញ្ញាត</p>
@@ -493,7 +493,7 @@
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/250x100/cccccc/333333?text=Signature+Missing';">` : ''}
                     <p><strong>${officerName}</strong></p>
                 </div>
