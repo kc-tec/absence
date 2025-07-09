@@ -36,7 +36,7 @@
         }
         .form-container {
             background-color: #ffffff;
-            padding: 32px;
+            padding: 10px;
             border-radius: 16px; /* Rounded corners for the container */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
             text-align: left; /* Align text to left for form labels */
@@ -91,11 +91,11 @@
             margin-right: 16px;
             font-weight: normal; /* Override form-group label weight */
         }
-        /* Unified button styles */
-        button {
+        /* New custom button style */
+        .custom-button {
             background-color: #4f46e5; /* Indigo */
             color: white;
-            padding: 20px 20px; /* Increased padding for more height and width */
+            padding: 12px 24px; /* Adjusted padding */
             border: none;
             border-radius: 8px; /* Rounded corners for button */
             cursor: pointer;
@@ -109,11 +109,11 @@
             justify-content: center; /* Center content horizontally */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
         }
-        button:hover {
+        .custom-button:hover {
             background-color: #4338ca; /* Darker indigo on hover */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Even stronger shadow on hover */
         }
-        button i {
+        .custom-button i {
             margin-right: 8px; /* Space between icon and text */
         }
         h1 {
@@ -151,9 +151,9 @@
         }
         .slip-header {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 14px;
             border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 16px;
+            padding-bottom: 14px;
         }
         .slip-header h2 {
             font-family: 'Moul', cursive; /* Apply Moul font to the header title */
@@ -174,7 +174,7 @@
         }
         .slip-subtitle-section { /* New class for the subtitle section */
             text-align: center; /* Center align for this specific section */
-            margin-bottom: 16px; /* Add some space below */
+            margin-bottom: 14px; /* Add some space below */
         }
         .slip-detail-item {
             display: flex;
@@ -207,10 +207,10 @@
         }
         .signature-block strong {
             display: block; /* Ensure officer name is on its own line */
-            margin-top: 16px; /* Space above officer name */
+            margin-top: 8px; /* Changed from 16px to 8px */
         }
         .signature-image {
-            max-width: 200; /* Decreased max-width */
+            max-width: 200px; /* Decreased max-width */
             height: 65px; /* Decreased height */
             object-fit: contain; /* Ensure image scales properly without distortion */
             display: block;
@@ -239,10 +239,16 @@
                     <input type="text" id="absentId" name="absentId" readonly class="bg-gray-100 cursor-not-allowed">
                 </div>
 
-                <!-- Student Name -->
-                <div class="form-group">
-                    <label for="studentName">ឈ្មោះសិស្ស:</label>
-                    <input type="text" id="studentName" name="studentName" placeholder="បញ្ចូលឈ្មោះសិស្ស" required>
+                <!-- Student ID and Student Name in one row -->
+                <div class="flex flex-col md:flex-row md:space-x-4">
+                    <div class="form-group w-1/4">
+                        <label for="studentId">អត្តលេខ:</label>
+                        <input type="number" id="studentId" name="studentId" placeholder="បញ្ចូលអត្តលេខ" required>
+                    </div>
+                    <div class="form-group w-3/4">
+                        <label for="studentName">ឈ្មោះសិស្ស:</label>
+                        <input type="text" id="studentName" name="studentName" placeholder="បញ្ចូលឈ្មោះសិស្ស" required>
+                    </div>
                 </div>
 
                 <!-- Sex -->
@@ -275,7 +281,7 @@
                     <div class="form-group flex-1 w-full">
                         <label for="studentYear">ឆ្នាំ:</label>
                         <select id="studentYear" name="studentYear" required>
-                            <option value="១">១</</option>
+                            <option value="១">១</option>
                             <option value="២" selected>២</option>
                             <option value="៣">៣</option>
                             <option value="៤">៤</option>
@@ -345,7 +351,7 @@
                     <input type="text" id="officerName" name="officerName" readonly class="bg-gray-100 cursor-not-allowed">
                 </div>
 
-                <button type="button" onclick="generateAbsenceSlip()">
+                <button type="button" onclick="generateAbsenceSlip()" class="custom-button">
                     <i class="fas fa-eye"></i> មើលជាមុន
                 </button>
             </form>
@@ -356,13 +362,13 @@
                 <!-- Absence slip content will be generated here -->
             </div>
             <div class="slip-actions">
-                <button type="button" onclick="hideAbsenceSlip()">
+                <button type="button" onclick="hideAbsenceSlip()" class="custom-button">
                     <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅទម្រង់
                 </button>
-                <button type="button" onclick="downloadAbsenceSlip()">
+                <button type="button" onclick="downloadAbsenceSlip()" class="custom-button">
                     <i class="fas fa-download"></i> ទាញយក
                 </button>
-                <button type="button" onclick="shareAbsenceSlip()">
+                <button type="button" onclick="shareAbsenceSlip()" class="custom-button">
                     <i class="fas fa-share-alt"></i> ចែករំលែក
                 </button>
             </div>
@@ -399,13 +405,15 @@
 
         /**
          * Converts a Western number to its Khmer numeral representation.
-         * @param {number} num - The Western number to convert.
+         * @param {string|number} num - The Western number to convert.
          * @returns {string} The number represented in Khmer numerals.
          */
         function convertNumberToKhmer(num) {
-            // Convert the number to a string, split into individual digits,
-            // map each digit to its Khmer equivalent, and then join them back.
-            return num.toString().split('').map(digit => khmerNumbers[parseInt(digit)]).join('');
+            // Ensure num is treated as a string for iteration
+            return String(num).split('').map(digit => {
+                const parsedDigit = parseInt(digit);
+                return isNaN(parsedDigit) ? digit : khmerNumbers[parsedDigit];
+            }).join('');
         }
 
         /**
@@ -439,6 +447,7 @@
             }
 
             const absentId = document.getElementById('absentId').value;
+            const studentId = document.getElementById('studentId').value; // Get Student ID
             const studentName = document.getElementById('studentName').value;
             const sex = document.querySelector('input[name="sex"]:checked').value === 'male' ? 'ប្រុស' : 'ស្រី';
             const studentClass = document.getElementById('studentClass').value;
@@ -447,9 +456,9 @@
             const absentDays = document.getElementById('absentDays').value;
             const fromDate = document.getElementById('fromDate').value;
             const toDate = document.getElementById('toDate').value;
-            const currentDay = document.getElementById('currentDay').value; // Already in Khmer
+            const currentDay = getKhmerDateString(new Date()); // Get current day in Khmer
             const approver = document.getElementById('approver').value;
-            const officerName = document.getElementById('officerName').value;
+            const officerName = approverOfficerMap[approver] || ''; // Get officer name based on approver
 
             // Get signature image path based on approver
             const signatureImagePath = approverSignatureMap[approver] || ''; // Default to empty if no match
@@ -482,7 +491,7 @@
                 </div>
                 <div class="signature-block">
                     <p>កំពង់ចាម ${currentDay}</p>
-                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>${approver}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     ${signatureImagePath ? `<img src="${signatureImagePath}" alt="Signature" class="signature-image" onerror="this.onerror=null;this.src='https://placehold.co/250x100/cccccc/333333?text=Signature+Missing';">` : ''}
                     <p><strong>${officerName}</strong></p>
                 </div>
@@ -574,6 +583,7 @@
             document.getElementById('absentId').value = absentId;
 
             // Format Current Day in Khmer
+            // This field is hidden in the form, but its value is used in the slip preview
             document.getElementById('currentDay').value = getKhmerDateString(now);
 
             // Set From Date and To Date to today's date
